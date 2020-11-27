@@ -1,0 +1,28 @@
+<div class="employee-detail-container">
+  <mat-card  fxFlex.xs="90" fxFlex="50">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayout.xs="column" class="detail_header">
+      <button matTooltip="Go Back" mat-icon-button (click)="goBackToList()">
+        <mat-icon >keyboard_backspace</mat-icon>
+      </button>
+      <p >Employees Details</p>
+  </div>
+    <div fxLayout="column" fxLayoutGap.xs="20px" fxLayoutGap.gt-xs="30px">
+      <div fxFlex="33">
+        <h4 class=" mat-h4 db ">Employee Id:</h4>
+        <span>{{employeeData.id}}</span>
+      </div>
+      <div fxFlex="33">
+        <h4 class=" mat-h4 db ">Employee Name:</h4>
+        <span>{{employeeData.employee_name}}</span>
+      </div>
+      <div fxFlex="33">
+        <h4 class=" mat-h4 db ">Employee Salary:</h4>
+        <span>{{employeeData.employee_salary}}</span>
+      </div>
+      <div fxFlex="33">
+        <h4 class=" mat-h4 db ">Employee Age:</h4>
+        <span>{{employeeData.employee_age}}</span>
+      </div>
+    </div>
+  </mat-card>
+</div>

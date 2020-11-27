@@ -1,0 +1,46 @@
+<div fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="space-between start" class="dialog-title">
+    <h2>{{dialogTitle}}</h2>
+    <button matTooltip="close" mat-icon-button (click)="onCloseDialogClick()">
+    <mat-icon >close</mat-icon>
+  </button>
+  </div>
+  <div fxLayout="column" fxFlex="100">
+    <form  fxFlex.xs="100" fxLayout="column" fxLayoutAlign="center stretch" [formGroup]="employeeFormGroup">
+      <mat-form-field fxFlex="100" appearance="outline">
+        <mat-label>Employee Id
+        </mat-label>
+        <input required matInput placeholder="Enter employee id" autocomplete="off" formControlName="id">
+        <mat-error>Employee Id must be
+          valid</mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="100" appearance="outline">
+        <mat-label>Age
+        </mat-label>
+        <input required matInput placeholder="Enter age" autocomplete="off" formControlName="age">
+        <mat-error>Age must be
+          valid</mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="100" appearance="outline">
+        <mat-label>Name
+        </mat-label>
+        <input required matInput placeholder="Enter Name" autocomplete="off" formControlName="name">
+        <mat-error>Name must be
+          valid</mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="100" appearance="outline">
+        <mat-label>Salary
+        </mat-label>
+        <input required matInput placeholder="Enter salary" autocomplete="off" formControlName="salary">
+        <mat-error>salary must be
+          valid</mat-error>
+      </mat-form-field>
+    </form>
+    <div  fxLayout="column" fxLayoutAlign="center" >
+      <button *ngIf="dialogInjectedData.action != 'update'" (click)="createEmployee()"  mat-raised-button color="primary" fxFlex=50
+        >Create</button>
+        <button *ngIf="dialogInjectedData.action == 'update'" (click)="updateEmployee()"  mat-raised-button color="primary" fxFlex=50
+        >Update</button>
+    </div>
+  </div>
+</div>

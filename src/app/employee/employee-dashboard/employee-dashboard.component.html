@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center" >
+      <div fxFlex="90" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="25px">
+         <button matTooltip="Dashboard"  mat-icon-button [routerLink]="'/dashboard'"><mat-icon class="header-logo-icon" mat-icon-button>person</mat-icon></button>
+        <span fxHide.xs>Employee Management Dashboard</span>
+      </div>
+      <span style="margin-right: 20px;">{{dispTime}}</span>
+      <div fxFlex="10" fxLayout="row" fxLayoutAlign="start center">
+        <button matTooltip="logout" mat-icon-button (click)="logout()">
+          <mat-icon >power_settings_new</mat-icon>
+          <span>Logout</span>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

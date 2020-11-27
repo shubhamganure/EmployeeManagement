@@ -1,0 +1,49 @@
+<div class="employee-list-container">
+  <mat-card  fxFlex.xs="90" fxFlex="58">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayout.xs="column" class="table_header">
+        <p >Employees List</p>
+        <button fxFlex.xs="100" (click)="addEmployee()" mat-raised-button color="primary"  >
+          <mat-icon>add</mat-icon>Add Employee
+        </button>
+    </div>
+    <div *ngIf="isNoRecordFound; else recordFound" >
+      <mat-hint fxLayout="row" fxLayoutAlign="center center">No Record Found</mat-hint>
+    </div>
+    <ng-template #recordFound>
+      <mat-table [dataSource]="paidDataSource">
+        <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>Employee Id</mat-header-cell>
+        <mat-cell *matCellDef="let visit">{{ visit.id }}</mat-cell>
+      </ng-container>
+        <ng-container matColumnDef="employee_name">
+          <mat-header-cell fxLayoutAlign.xs="center center" *matHeaderCellDef>Employee Name</mat-header-cell>
+          <mat-cell fxLayoutAlign.xs="center center" *matCellDef="let visit">
+            {{ visit.employee_name }}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Actions">
+          <mat-header-cell fxLayoutAlign="end center" *matHeaderCellDef >Actions</mat-header-cell>
+          <mat-cell (click)="$event.stopPropagation()" fxLayoutAlign="end center" *matCellDef="let visit">
+            <div>
+              <mat-menu #dailyPerformanceMenu="matMenu">
+                <a mat-menu-item (click)="editEmployee(visit.id)" >
+                  <mat-icon matListIcon>edit</mat-icon>
+                  <span >Edit</span>
+                </a>
+                <a mat-menu-item (click)="deleteEmployee(visit.id)">
+                  <mat-icon matListIcon>delete_outline</mat-icon>
+                  <span >Delete</span>
+                </a>
+              </mat-menu>
+              <button mat-icon-button [matMenuTriggerFor]="dailyPerformanceMenu">
+                <mat-icon matTooltip="Actions">format_list_bulleted</mat-icon>
+              </button>
+            </div>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row class="example-element-row" (click)="viewEmployeeDetails(row.id)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </ng-template>
+  </mat-card>
+</div>

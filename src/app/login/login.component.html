@@ -1,0 +1,31 @@
+<div class="login-container">
+  <mat-card fxLayout.xs="column" fxFlex="30" fxFlex.xs="90">
+      <form  fxFlex.xs="100" fxLayout="column" fxLayoutAlign="center stretch" [formGroup]="loginFormGroup">
+        <div fxLayout="row" fxLayoutAlign.xs="center" fxLayoutAlign="center center">
+          <h2>User Login</h2>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>User Id
+          </mat-label>
+          <input required matInput placeholder="Enter user id" autocomplete="off" formControlName="userId">
+          <mat-error>User Id must be
+            valid</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+            <input required matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password"
+              autocomplete="off" formControlName="password">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          <mat-error>Password must
+            be valid</mat-error>
+        </mat-form-field>
+      </form>
+      <div  fxLayout="column" fxLayoutAlign="center"  class="login-btn-container">
+        <button type="submit" (click)="authenticateUser()" mat-raised-button color="primary" fxFlex=50
+          >Login</button>
+      </div>
+  </mat-card>
+</div>

@@ -1,0 +1,18 @@
+.employee-list-container{
+  padding-top: 51px;
+}
+.table_header{
+  font-size: 25px;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.mat-card {
+  margin: 0px auto 50px;
+}
+.example-element-row:hover,
+.example-element-row:focus {
+  /* background: #777; */
+  background-color: rgba(0, 0, 0, 0.041);
+  cursor: pointer;
+}
